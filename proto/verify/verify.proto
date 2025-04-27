@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package verify;
+
+option go_package = "chat.verify;verify";
+
+service VerifyService {
+  rpc VerifyEmail(VerifyEmailRequest) returns (VerifyEmailResponse);
+}
+
+message VerifyEmailRequest {
+  string verification_token = 1;
+}
+
+message VerifyEmailResponse {
+}

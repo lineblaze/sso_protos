@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package twofa;
+
+option go_package = "chat.twofa;twofa";
+
+service TwoFAService {
+  rpc Enable2FA(Enable2FARequest) returns (Enable2FAResponse);
+  rpc ConfirmEnable2FA(ConfirmEnable2FARequest) returns (ConfirmEnable2FAResponse);
+  rpc Disable2FA(Disable2FARequest) returns (Disable2FAResponse);
+}
+
+message Enable2FARequest {
+  string jwt = 1;
+}
+
+message Enable2FAResponse {
+  string otp_secret = 1;
+}
+
+message ConfirmEnable2FARequest {
+  string jwt = 1;
+  string otp = 2;
+}
+
+message ConfirmEnable2FAResponse {
+}
+
+message Disable2FARequest {
+  string jwt = 1;
+}
+
+message Disable2FAResponse {
+}
